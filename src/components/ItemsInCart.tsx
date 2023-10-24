@@ -5,10 +5,14 @@ export default function ItemsInCart() {
   const cartItems = useSelector((state: RootStateType) => state.cart.items);
   console.log("cart items", cartItems);
 
-  // prettier-ignore
-  const itemsTotal = cartItems.reduce((total, item) => total + item.quantity, 0);
-  // prettier-ignore
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const itemsTotal = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   return (
     <>

@@ -13,7 +13,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(0);
 
   const handleAddToCart = () => {
-    dispatch(cartActions.addItem({ ...product, quantity }));
+    if (quantity > 0) {
+      dispatch(cartActions.addItem({ ...product, quantity }));
+    }
   };
 
   return (
@@ -21,7 +23,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
       <p>{product.name}</p>
       <p>${product.price}</p>
       <div>
-        <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
+        <button onClick={() => setQuantity((q) => Math.max(0, q - 1))}>
           -
         </button>
         <span>{quantity}</span>
