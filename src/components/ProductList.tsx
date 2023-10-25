@@ -1,12 +1,15 @@
 import React from "react";
-import ProductItem from "./ProductItem";
+
 import { products } from "../data/product";
+import ProductItemWithLocalState from "./ProductItemWithLocalState";
+// import ProductItemWithGlobalState from "./ProductItemWithGlobalState";
 
 const ProductList: React.FC = () => {
   return (
     <div>
       {products.map((product) => (
-        <ProductItem key={product.id} product={product} />
+        <ProductItemWithLocalState key={product.id} product={product} />
+        // <ProductItemWithGlobalState key={product.id} product={product} />
       ))}
     </div>
   );

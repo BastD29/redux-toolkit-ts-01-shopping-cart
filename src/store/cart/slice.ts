@@ -19,6 +19,26 @@ const slice = createSlice({
         state.items.push(newItem);
       }
     },
+    removeItem: (state, action: PayloadAction<string>) => {
+      const removedItems = state.items.filter(
+        (item) => item.id !== action.payload
+      );
+      state.items = removedItems;
+    },
+    // incrementQuantity: (state, action: PayloadAction<string>) => {
+    //   const item = state.items.find((item) => item.id === action.payload);
+    //   item?.quantity++
+    // },
+    incrementQuantity: (state, action: PayloadAction<string>) => {
+      const itemId = action.payload;
+      const item = state.items.find((item) => item.id === itemId);
+      if (item) item.quantity += 1;
+    },
+    decrementQuantity: (state, action: PayloadAction<string>) => {
+      const itemId = action.payload;
+      const item = state.items.find((item) => item.id === itemId);
+      if (item && item.quantity > 0) item.quantity -= 1;
+    },
   },
 });
 

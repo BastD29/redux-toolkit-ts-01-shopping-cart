@@ -7,7 +7,7 @@ interface ProductItemProps {
   product: Product;
 }
 
-const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
+const ProductItemWithLocalState: React.FC<ProductItemProps> = ({ product }) => {
   const dispatch = useDispatch();
 
   const [quantity, setQuantity] = useState<number>(0);
@@ -34,4 +34,4 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   );
 };
 
-export default ProductItem;
+export default ProductItemWithLocalState;
